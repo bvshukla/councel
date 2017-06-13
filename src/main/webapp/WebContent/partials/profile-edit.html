@@ -1,0 +1,187 @@
+<div>
+	<div class="row">
+		<div
+			class=" profile-size col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Edit Profile</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 col-lg-4 " align="center">
+							<div ng-if="user.profilePic">
+								<img alt="User Pic" src="{{user.profilePic}}"
+									class="img-circle img-responsive">
+							</div>
+							<div ng-if="!user.profilePic">
+								<img alt="Placeholder" src="{{placeholder}}"
+									class="img-circle img-responsive">
+							</div>
+							<div style="margin-top: 10%;">
+								<button class="btn btn-primary btn-lg" data-toggle="modal"
+									data-target="#myModal">Change Picture</button>
+							</div>
+							<div style="display: none;" class="modal fade" id="myModal"
+								tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+								aria-hidden="true">
+								<form name="myForm" ng-controller="EditProfileController">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">X</button>
+												<h4 class="modal-title" id="myModalLabel">Upload
+													Picture</h4>
+											</div>
+											<div class="modal-body">
+
+
+												<div>Crop Image and Upload</div>
+												<button ngf-select ng-model="picFile" accept="image/*">
+													Select Picture</button>
+												<div ngf-drop ng-model="picFile" ngf-pattern="image/*"
+													class="cropArea">
+													<img-crop image="picFile  | ngfDataUrl"
+														result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+													</img-crop>
+												</div>
+												<div>
+													<img ng-src="{{croppedDataUrl}}" />
+												</div>
+
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-primary"
+													ng-click="upload(croppedDataUrl, picFile.name)">Save
+													changes</button>
+											</div>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal-dialog -->
+								</form>
+							</div>
+
+						</div>
+
+						<!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DEPARTMENT:</dt>
+                    <dd>Administrator</dd>
+                    <dt>HIRE DATE</dt>
+                    <dd>11/12/2013</dd>
+                    <dt>DATE OF BIRTH</dt>
+                       <dd>11/12/2013</dd>
+                    <dt>GENDER</dt>
+                    <dd>Male</dd>
+                  </dl>
+                </div>-->
+						<form role="form" ng-submit="update()"
+							ng-controller="EditProfileController">
+							<div class=" col-md-9 col-lg-8 ">
+
+								<table class="table table-user-information">
+									<tbody>
+										<tr>
+											<td>First Name</td>
+											<td><input class="form-control"
+												value="{{user.firstName}}" ng-model="user.firstName"
+												name="firstName" required></td>
+										</tr>
+										<tr>
+											<td>Last Name</td>
+											<td><input class="form-control"
+												value="{{user.lastName}}" ng-model="user.lastName"
+												name="lastName" required></td>
+										</tr>
+										<tr>
+											<td>Date of Birth</td>
+											<td><md-datepicker ng-model="dob"
+													md-placeholder="Enter date"></md-datepicker></td>
+										</tr>
+										<tr ng-if="user.userType == 'LAWYER'">
+											<td>Law Firm:</td>
+											<td><input class="form-control" value="{{user.lawFirm}}"
+												ng-model="user.lawFirm" name="lawFirm"></td>
+										</tr>
+										<tr ng-if="user.userType == 'LAWYER'">
+											<td>Court:</td>
+											<td><input class="form-control"
+												value="{{user.courtName}}" ng-model="user.courtName"
+												name="courtName"></td>
+										</tr>
+
+										<tr ng-if="user.userType == 'LAWYER'">
+											<td>Location:</td>
+											<td><input class="form-control"
+												value="{{user.location}}" ng-model="user.location"
+												name="location"></td>
+										</tr>
+										<tr ng-if="user.userType == 'LAWYER'">
+											<td>Contact For : </td>
+											<td><input class="form-control"
+												value="{{user.contactFor}}" ng-model="user.contactFor"
+												name="contactFor"></td>
+										</tr>
+										<tr ng-if="user.userType == 'LAWYER'">
+											<td>Experience (in years):</td>
+											<td><input class="form-control"
+												value="{{user.experience}}" ng-model="user.experience"
+												name="experience"></td>
+										</tr>
+										<tr ng-if="user.userType == 'LAWYER'">
+											<td>Bio:</td>
+											<td><textarea rows="2" class="form-control"
+												value="{{user.bio}}" ng-model="user.bio"
+												name="courtName"></td>
+										</tr>
+
+										<tr>
+											<td>Gender</td>
+											<td><label class="radio-inline"> <input
+													type="radio" name="Male" ng-model="user.gender"
+													id="optionsRadiosInline1" value="Male" checked>Male
+											</label> <label class="radio-inline"> <input type="radio"
+													name="Female" ng-model="user.gender"
+													id="optionsRadiosInline2" value="Female">Female
+											</label></td>
+										</tr>
+										<tr>
+											<td>Home Address</td>
+											<td><textarea rows="2" class="form-control"
+													value="{{user.address}}" ng-model="user.address"
+													placeholder="Address" name="address"></textarea></td>
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td><input class="form-control" value="{{user.email}}"
+												ng-model="user.email" name="email" type="email"></td>
+										</tr>
+										<tr>
+											<td>Phone Number</td>
+											<td><input class="form-control" value="{{user.mobile}}"
+												ng-model="user.mobile" name="mobileNo" type="tel"></td>
+
+										</tr>
+
+									</tbody>
+								</table>
+								<span style="margin-left: 33%;">
+									<button type="submit" class="btn btn-primary">Save
+										Changes</button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="panel-footer"></div>
+
+			</div>
+		</div>
+	</div>
+</div>

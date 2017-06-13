@@ -1,0 +1,75 @@
+<div>
+      <div class="row">
+        <div class=" profile-size col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{puser.firstName | uppercase }} {{puser.lastName | uppercase }}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-4 " align="center" >
+                	<img alt="User Pic" ng-src="{{puser.profilePic}}" ng-if="puser.profilePic" class="img-circle img-responsive"> 
+                	<img alt="Placeholder" ng-src="{{placeholder}}" ng-if="!puser.profilePic" class="img-circle img-responsive"> 
+                	<div class="widget-box transparent">
+								<div class="widget-header widget-header-small">
+									<h4 class="widget-title smaller">
+										<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+										Little About Me
+									</h4>
+								</div>
+
+								<div class="widget-body">
+									<div class="widget-main">
+										{{puser.bio}}
+									</div>
+								</div>
+                </div>
+                </div>
+                <div class=" col-md-9 col-lg-8 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr ng-if="puser.userType == 'LAWYER'">
+                        <td >Law Firm:</td>
+                        <td>{{puser.lawFirm}}</td>
+                      </tr>
+                      <tr ng-if="puser.userType == 'LAWYER'">
+                        <td>Court:</td>
+                        <td>{{puser.courtName}}</td>
+                      </tr>
+                      <tr ng-if="puser.userType == 'LAWYER'">
+                        <td>Location:</td>
+                        <td>{{puser.location}}</td>
+                      </tr>
+                      <tr ng-if="puser.userType == 'LAWYER'">
+                        <td>Contact For:</td>
+                        <td>{{puser.contactFor}}</td>
+                      </tr>
+                      <tr ng-if="puser.userType == 'LAWYER'">
+                        <td>Experience:</td>
+                        <td>{{puser.experience}} years</td>
+                      </tr>
+                      <tr>
+                        <td>Date of Birth</td>
+                        <td>{{puser.dob}}</td>
+                      </tr>
+                             <tr>
+                        <td>Gender</td>
+                        <td>{{puser.gender}}</td>
+                      </tr>                     
+                    </tbody>
+                  </table>
+                  
+                  
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>

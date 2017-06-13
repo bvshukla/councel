@@ -1,0 +1,93 @@
+<div>
+      <div class="row">
+        <div class=" profile-size col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{user.firstName | uppercase }} {{user.lastName | uppercase }}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-4 " align="center" >
+                	<img alt="User Pic" ng-src="{{user.profilePic}}" ng-if="user.profilePic" class="img-circle img-responsive"> 
+                	<img alt="Placeholder" ng-src="{{placeholder}}" ng-if="!user.profilePic" class="img-circle img-responsive"> 
+                	<div class="widget-box transparent">
+								<div class="widget-header widget-header-small">
+									<h4 class="widget-title smaller">
+										<i class="ace-icon fa fa-check-square-o bigger-110"></i>
+										Little About Me
+									</h4>
+								</div>
+
+								<div class="widget-body">
+									<div class="widget-main">
+										{{user.bio}}
+									</div>
+								</div>
+                </div>
+                </div>
+                <div class=" col-md-9 col-lg-8 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr ng-if="user.userType == 'LAWYER'">
+                        <td >Law Firm:</td>
+                        <td>{{user.lawFirm}}</td>
+                      </tr>
+                      <tr ng-if="user.userType == 'LAWYER'">
+                        <td>Court:</td>
+                        <td>{{user.courtName}}</td>
+                      </tr>
+                      <tr ng-if="user.userType == 'LAWYER'">
+                        <td>Location:</td>
+                        <td>{{user.location}}</td>
+                      </tr>
+                      <tr ng-if="user.userType == 'LAWYER'">
+                        <td>Contact For:</td>
+                        <td>{{user.contactFor}}</td>
+                      </tr>
+                      <tr ng-if="user.userType == 'LAWYER'">
+                        <td>Experience:</td>
+                        <td>{{user.experience}} years</td>
+                      </tr>
+                      <tr>
+                        <td>Date of Birth</td>
+                        <td>{{user.dob}}</td>
+                      </tr>
+                             <tr>
+                        <td>Gender</td>
+                        <td>{{user.gender}}</td>
+                      </tr>
+                        <tr>
+                        <td>Home Address</td>
+                        <td>{{user.address}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number</td>
+                        <td><a href="tel:{{user.mobile}}">{{user.mobile}}</a>
+                        </td>
+                           
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  
+                  
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a href="#/edit" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                        </span>
+                    </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
