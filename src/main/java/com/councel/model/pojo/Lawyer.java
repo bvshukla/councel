@@ -10,6 +10,10 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 @Table(name="Lawyer")
 @PrimaryKeyJoinColumn(name="userId")
+@SqlResultSetMapping(
+	    name = "LawyerWithClient",
+	    entities = @EntityResult(entityClass = Lawyer.class),
+	    columns = @ColumnResult(name = "CLIENTS"))
 public class Lawyer extends User {
 	
 	
@@ -21,10 +25,16 @@ public class Lawyer extends User {
 	
 	private String lawFirm;
 	private String courtName;
+	private String location;
+	private String contactFor;
+	private String experience;
+	private String bio;
 	
 	@Transient
-	private Long clients;
+	private Integer clientsCount;
 	
+	@Transient
+	private List<ClientInfo> clientsInfo;
 	
 	public String getLawFirm() {
 		return lawFirm;
@@ -38,12 +48,41 @@ public class Lawyer extends User {
 	public void setCourtName(String courtName) {
 		this.courtName = courtName;
 	}
-	
-	public Long getClients() {
-		return clients;
+	public Integer getClientsCount() {
+		return clientsCount;
 	}
-	public void setClients(Long clients) {
-		this.clients = clients;
+	public void setClientsCount(Integer cnt) {
+		this.clientsCount = cnt;
+	}
+	public List<ClientInfo> getClientsInfo() {
+		return clientsInfo;
+	}
+	public void setClientsInfo(List<ClientInfo> clientsInfo) {
+		this.clientsInfo = clientsInfo;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public String getContactFor() {
+		return contactFor;
+	}
+	public void setContactFor(String contactFor) {
+		this.contactFor = contactFor;
+	}
+	public String getExperience() {
+		return experience;
+	}
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+	public String getBio() {
+		return bio;
+	}
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 	
 	

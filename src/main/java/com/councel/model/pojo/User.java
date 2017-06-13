@@ -18,10 +18,13 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String address;
-	private String mobileNo;
+	private String mobile;
 	private String email;
 	private String password;
+	private String gender;
+	private String dob;
 	private UserType userType;
+	private String profilePic;
 	
 	public long getUserId() {
 		return userId;
@@ -47,11 +50,11 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getMobileNo() {
-		return mobileNo;
+	public String getMobile() {
+		return mobile;
 	}
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 	public String getEmail() {
 		return email;
@@ -71,6 +74,25 @@ public class User {
 	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+	public String getProfilePic() {
+		return profilePic;
+	}
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+	
 	
 	
 	

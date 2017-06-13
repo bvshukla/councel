@@ -36,7 +36,7 @@ public class UserTests extends TestCase {
 		lawyer.setAddress("Hyderabad");
 		lawyer.setCourtName("Cyberabad");
 		lawyer.setLawFirm("H&M");
-		lawyer.setMobileNo("9573545118");
+		lawyer.setMobile("9573545118");
 		lawyer.setPassword("1234");
 		
 		client = new Client();
@@ -44,7 +44,7 @@ public class UserTests extends TestCase {
 		client.setLastName("sharma");
 		client.setEmail("pulkit.sharma@gmail.com");
 		client.setAddress("Hyderabad");
-		client.setMobileNo("7893922700");
+		client.setMobile("7893922700");
 		client.setPassword("1234");
 		
 		tlawyer = new Lawyer();
@@ -54,7 +54,7 @@ public class UserTests extends TestCase {
 		tlawyer.setAddress("Hyderabad");
 		tlawyer.setCourtName("Cyberabad");
 		tlawyer.setLawFirm("H&M");
-		tlawyer.setMobileNo("9573545118");
+		tlawyer.setMobile("9573545118");
 		tlawyer.setPassword("1234");
 		
 		
@@ -63,7 +63,7 @@ public class UserTests extends TestCase {
 		tclient.setLastName("sharma");
 		tclient.setEmail("pulkit.sharma1@gmail.com");
 		tclient.setAddress("Hyderabad");
-		tclient.setMobileNo("7893922700");
+		tclient.setMobile("7893922700");
 		tclient.setPassword("1234");
 		
 		dlawyer = new Lawyer();
@@ -73,7 +73,7 @@ public class UserTests extends TestCase {
 		dlawyer.setAddress("Hyderabad");
 		dlawyer.setCourtName("Cyberabad");
 		dlawyer.setLawFirm("H&M");
-		dlawyer.setMobileNo("9573545118");
+		dlawyer.setMobile("9573545118");
 		dlawyer.setPassword("1234");
 		
 		dclient = new Client();
@@ -81,7 +81,7 @@ public class UserTests extends TestCase {
 		dclient.setLastName("sharma");
 		dclient.setEmail("pulkit.sharma2@gmail.com");
 		dclient.setAddress("Hyderabad");
-		dclient.setMobileNo("7893922700");
+		dclient.setMobile("7893922700");
 		dclient.setPassword("1234");
 		
 		UserService.createUser(tlawyer);
@@ -119,7 +119,7 @@ public class UserTests extends TestCase {
 
 		List<Client> l = new ArrayList<Client>();
 		l.add(tclient);
-		tlawyer.setClients(l);
+		//tlawyer.setClients(l);
 
 		UserService.updateLawyer(tlawyer);
 		

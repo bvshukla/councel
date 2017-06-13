@@ -16,9 +16,11 @@ public class ClientAppointments {
 	@ManyToOne
 	private Client client;
 	
-	private Timestamp appointmentTime;
+	private Timestamp appointmentStartTime;
+	private Timestamp appointmentEndTime;
 	private String venue;
 	private String purpose;
+	private boolean availableToClients;
 	
 	
 	public long getAppointmentId() {
@@ -39,12 +41,20 @@ public class ClientAppointments {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	public Timestamp getAppointmentTime() {
-		return appointmentTime;
+	public Timestamp getAppointmentStartTime() {
+		return appointmentStartTime;
 	}
-	public void setAppointmentTime(Timestamp appointmentTime) {
-		this.appointmentTime = appointmentTime;
+	public void setAppointmentStartTime(Timestamp appointmentStartTime) {
+		this.appointmentStartTime = appointmentStartTime;
 	}
+	
+	public Timestamp getAppointmentEndTime() {
+		return appointmentEndTime;
+	}
+	public void setAppointmentEndTime(Timestamp appointmentEndTime) {
+		this.appointmentEndTime = appointmentEndTime;
+	}
+	
 	public String getVenue() {
 		return venue;
 	}
@@ -57,6 +67,13 @@ public class ClientAppointments {
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
 	}
+	public boolean getAvailableToClients() {
+		return availableToClients;
+	}
+	public void setAvailableToClients(boolean availableToClients) {
+		this.availableToClients = availableToClients;
+	}
+	
 	
 	
 }
